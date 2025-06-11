@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuri & Ana</title>
+    <style>
+        body {
+            display: grid;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            place-items: center;
+            color: #333;
+        }
+
+        header {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        section.declaracao {
+            padding: 2rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        section.declaracao p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .galeria{
+            position: relative;
+            width: 300px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: rotate 20s linear infinite;
+
+        }
+        @keyframes rotate {
+            from{
+                transform: perspective(1200px) rotatey(0deg);
+            }
+            to{
+                transform: perspective(1200px) rotatey(360deg);
+            }
+            
+        }
+
+        .galeria span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 45deg)) translateZ(380px);
+        }
+
+        .galeria span img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+        }
+
+
+        /*** {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .carrossel {
+            filter: drop-shadow(0px 0px 10px #000);
+            overflow: hidden;
+            width: 500px;
+            height: 570px;
+        }
+
+        .container {
+            display: flex;
+            transition: 0.7s ease-in-out;
+            transform: translateX(0);
+        }
+
+        img {
+            margin-top: -100px;
+            width: 1250px;
+            height: 720px;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 2rem;
+            background: #eee;
+        }
+
+        .galeria img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }**/
+
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+    <script>
+
+        function atualizarContador() {
+            const inicio = new Date("2021-01-23T18:00:00Z"); // UTC
+            const agora = new Date();
+            const diferenca = agora - inicio;
+
+            const segundosTotais = Math.floor(diferenca / 1000);
+
+            const dias = Math.floor(segundosTotais / (60 * 60 * 24));
+            const horas = Math.floor((segundosTotais % (60 * 60 * 24)) / 3600);
+            const minutos = Math.floor((segundosTotais % 3600) / 60);
+            const segundos = segundosTotais % 60;
+
+            document.getElementById("contador").innerHTML =
+                `Tempo juntos desde 23 de Janeiro de 2021<br>
+             <strong>${dias}</strong> dias,
+             <strong>${horas}</strong> horas,
+             <strong>${minutos}</strong> minutos e
+             <strong>${segundos}</strong> segundos.`;
+        }
+
+        setInterval(atualizarContador, 1000);
+        atualizarContador(); // Inicializa imediatamente
+
+        const box = document.querySelector(".container");
+        const imagens = document.querySelector(".container img");
+
+        let contador = 1;
+
+        function slider() {
+            contador++;
+
+            if (contador > imagens.length - 1) {
+                contador = 0;
+            }
+
+            box.style.transform = `translateX(${-contador * 100}px)`;
+        }
+
+        setInterval(slider, 2000);
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Feliz Dia dos Namorados</h1>
+        <p>Celebrando nossa caminhada juntos em Cristo</p>
+    </header>
+
+    <div id="contador" style="font-size: 1.5rem; font-weight: bold; text-align: center; margin: 2rem 0;"></div>
+<br>
+<br>
+
+    
+    <div class="galeria">
+        <span style="--i:1">
+            <img src="fotos/foto (1).jpeg" alt="Foto 1 do casal">
+        </span>
+
+        <span style="--i:2">
+            <img src="fotos/foto (2).jpeg" alt="Foto 2 do casal">
+        </span>
+
+        <span style="--i:3">
+            <img src="fotos/foto (3).jpeg" alt="Foto 3 do casal">
+        </span>
+
+        <span style="--i:4">
+            <img src="fotos/foto (4).jpeg" alt="Foto 4 do casal">
+        </span>
+
+        <span style="--i:5">
+            <img src="fotos/foto (5).jpeg" alt="Foto 5 do casal">
+        </span>
+
+        <span style="--i:6">
+            <img src="fotos/foto (6).jpeg" alt="Foto 6 do casal">
+        </span>
+
+        <span style="--i:7">
+            <img src="fotos/foto (7).jpeg" alt="Foto 7 do casal">
+        </span>
+
+        <span style="--i:8">
+            <img src="fotos/foto (8).jpeg" alt="Foto 8 do casal">
+        </span>
+
+        <span style="--i:9">
+            <img src="fotos/foto (9).jpeg" alt="Foto 9 do casal">
+        </span>
+
+        <span style="--i:10">
+            <img src="fotos/foto (10).jpeg" alt="Foto 10 do casal">
+        </span>
+
+    </div>
+
+<br>
+<br>
+
+    <section class="declaracao">
+        <p>
+            Hoje celebramos o nosso 10° dia dos namorados juntos. <br>
+            Ana, uma mulher virtuosa, que com tanto amor lidera o Ministério das Crianças, plantando sementes de fé nos
+            corações mais puros. <br>
+            Yuri, servo fiel, que com seu conhecimento e coração ministra louvor, conduzindo vidas à presença do Senhor.
+            <br><br>
+
+            Somos diferentes, mas unidos por um mesmo propósito: amar a Deus sobre todas as coisas e amar um ao outro
+            com tudo que somos. <br>
+            A cada desafio, a cada vitória, temos visto a fidelidade do Senhor se manifestar em nosso lar. <br><br>
+
+            Que venham muitos outros anos, sob a graça de Cristo, crescendo em amor, fé e propósito. <br>
+            "Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu, ninguém o separe." (Mateus
+            19:6)
+        </p>
+    </section>
+
+
+
+    <footer>
+        &copy; 2025 - Com amor em Cristo, Ana Karolina & Yuri Mello
+    </footer>
+
+</body>
+
+</html>
